@@ -22,6 +22,7 @@ grails.project.fork = [
 ]
 
 grails.project.dependency.resolver = "maven" // or ivy
+grails.plugin.location.grid3 = "../grid3"
 grails.project.dependency.resolution = {
     // inherit Grails' default dependencies
     inherits("global") {
