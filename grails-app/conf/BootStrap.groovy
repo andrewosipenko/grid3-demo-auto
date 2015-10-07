@@ -91,9 +91,8 @@ class BootStrap {
     }
 
     private Object getOrSave(String property, Object object){
-        println "getOrSave: ${property} ${object}"
         Object res = object.class.createCriteria().get{
-            if(brand){
+            if(brand && object.hasProperty('brand')){
                 eq('brand', brand)
             }
             eq(property, object[property])
@@ -104,6 +103,7 @@ class BootStrap {
             }
             res = object.save(failOnError:true)
         }
+        println "getOrSave: ${property} ${object}"
         return res
     }
 

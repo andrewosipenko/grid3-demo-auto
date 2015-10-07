@@ -1,7 +1,6 @@
 package grid3.demo.auto
 
 class CarOption {
-    Brand brand
     CarModel model
     String optionId
 

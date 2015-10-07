@@ -2,7 +2,6 @@ package grid3.demo.auto
 
 
 class Car {
-    Brand brand
     CarModel model
     String carId
 
@@ -10,6 +9,6 @@ class Car {
     Transmission transmission
 
     static constraints = {
-        carId unique: ['brand'], blank: false
+        carId unique: ['model'], blank: false
     }
 }

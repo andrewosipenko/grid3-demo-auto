@@ -14,9 +14,25 @@ class Grid3CarEditorController {
         Grid3 grid3 = hqlGrid3Service.buildGrid3("""
 <hqlXml>
   <columns>
+    <column path="brand.brandId"/>
+    <column path="model.modelId"/>
     <column path="car.carId"/>
+    <column path="engine.engineId"/>
+    <column path="transmission.transmissionId"/>
   </columns>
   <table domain="Car" alias="car" key="key"/>
+  <leftJoin path="car.model">
+    <table domain="CarModel" alias="model" key="key" />
+  </leftJoin>
+  <leftJoin path="model.brand">
+    <table domain="Brand" alias="brand" key="key" />
+  </leftJoin>
+  <leftJoin path="car.engine">
+    <table domain="Engine" alias="engine" key="key" />
+  </leftJoin>
+  <leftJoin path="car.transmission">
+    <table domain="Tranmission" alias="transmission" key="key" />
+  </leftJoin>
 </hqlXml>
         """)
         Grid3View grid3View = simpleGrid3ViewService.buildView(grid3)
